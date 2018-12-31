@@ -1,42 +1,42 @@
-let n
+let n 
 init()
 setInterval(()=>{
-    makeLeave(getImage(n))
-    .one('transitionend',(e)=>{
+    makeLeave(getImg(n)).one('transitionend',(e)=>{
         makeEnter($(e.currentTarget))
     })
-    makeCurrent(getImage(n+1))
+    makeCurrent(getImg(n+1))
     n +=1
 },3000)
 
 
 
 
-function getImage(n){
-    return $(`.images > img:nth-child(${x(n)})`)
-  }
-function x(n){
+
+
+
+
+
+function getImg(n){
     if(n>5){
         n = n%5
         if(n===0){
-            n = 5
+            n=5
         }
     }
-    return n
+    return $(`.images > img:nth-child(${n})`)
 }
 
 function init(){
     n = 1
-    $(`.images > img:nth-child(${n})`).addClass('current')
-    .siblings().addClass('enter')
-  }
+    getImg(n).addClass('current').siblings().addClass('enter')
+}
 function makeCurrent($node){
     $node.removeClass('enter leave').addClass('current')
 }
 function makeLeave($node){
-    $node.removeClass('enter current').addClass('leave')
+    $node.removeClass('enter enter').addClass('leave')
     return $node
 }
 function makeEnter($node){
-    $node.removeClass('leave current').addClass('enter')
+    $node.removeClass('current leave').addClass('enter')
 }
