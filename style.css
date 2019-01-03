@@ -14,9 +14,30 @@
 .images > img{
     width: 100%;
 }
-#controls{
-    text-align: center;
+#previous{
+    border:0px;
+    background-color:transparent;
+    position: relative;
+    left: 390px;
+    top: -258px;
+    outline: none;
+
+}
+#next{
+    border:0px;
+    background-color:transparent;
+    position: relative;
+    top: -258px;
+    left: 725px;
+
 }
 #buttonWrapper{
+    position: relative;
     text-align: center;
+    top: -190px;
+}
+#buttonWrapper > button{
+    border:0px;
+    background-color:transparent;
+    outline: none;
 }
